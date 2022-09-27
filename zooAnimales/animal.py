@@ -6,7 +6,7 @@ from zooAnimales import reptil
 from zooAnimales import anfibio
 
 class Animal:
-    def __init__(self, nombre, edad, habitat, genero):
+    def __init__(self, nombre=None, edad=0, habitat=None, genero=None):
         self.nombre = nombre
         self.edad = edad
         self.habitat = habitat
