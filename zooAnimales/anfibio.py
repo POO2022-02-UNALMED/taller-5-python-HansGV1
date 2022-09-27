@@ -8,7 +8,6 @@ class Anfibio(animal.Animal):
         self.salamandras = salamandras
         self._colorPiel = colorPiel
         self._venenoso = venenoso
-        super.__init__(nombre, edad, habitat, genero, color, veneno)
         self.numAnfi = numAnfi
     
     def Anfibio(self, nombre, edad, habitat, genero, color, veneno):
