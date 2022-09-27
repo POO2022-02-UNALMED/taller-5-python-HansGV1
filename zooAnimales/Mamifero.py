@@ -1,42 +1,42 @@
-from gestion import Zoologico
-from zooAnimales import Mamifero
-from zooAnimales import Ave
-from zooAnimales import Pez
-from zooAnimales import Reptil
-from zooAnimales import Anfibio
+from gestion import zoologico
+from zooAnimales import mamifero
+from zooAnimales import ave
+from zooAnimales import pez
+from zooAnimales import reptil
+from zooAnimales import anfibio
 
 class Mamifero:
-    def __init__(self, mamifero, caballos, leones, pelaje, patas, numMamiferos):
+    def __init__(self, mamifero, caballos, leones, pelaje, patas, nummamiferos):
         self.mamifero = mamifero
         self.caballos = caballos
         self.leones = leones
         self.pelaje = pelaje
         self.patas = patas
-        self.numMamiferos = numMamiferos
+        self.nummamiferos = nummamiferos
         
-    def Mamifero(self, nombre, edad,habitat, genero, pelaje, patas):
+    def mamifero(self, nombre, edad,habitat, genero, pelaje, patas):
         self.patas= patas
         self.pelaje = pelaje
-        Zoologico.setNombre(nombre)
-        Zoologico.setEdad(edad)
-        Zoologico.setHabitat(habitat)
-        Zoologico.setGenero(genero)
+        zoologico.setNombre(nombre)
+        zoologico.setEdad(edad)
+        zoologico.setHabitat(habitat)
+        zoologico.setGenero(genero)
     
-    def Mamifero(self):
-        self.numMamiferos += 1
+    def mamifero(self):
+        self.nummamiferos += 1
     
-    def cantidadMamiferos(self):
-        return self.numMamiferos
+    def cantidadmamiferos(self):
+        return self.nummamiferos
     
     def crearCaballo(self, nombre, edad, genero):
-        self.mamifero.add(Mamifero(nombre,edad,"pradera",genero,True,4))		
-        self.numMamiferos += 1
+        self.mamifero.add(mamifero(nombre,edad,"pradera",genero,True,4))		
+        self.nummamiferos += 1
         self.caballos+= 1	
         return self.mamifero.get(self.mamifero.size()-1)		
     
     def crearLeon(self, nombre, edad, genero):
-        self.mamifero.add(Mamifero(nombre,edad,"selva",genero,True,4))
-        self.numMamiferos += 1
+        self.mamifero.add(mamifero(nombre,edad,"selva",genero,True,4))
+        self.nummamiferos += 1
         self.leones += 1
         return self.mamifero.get(self.mamifero.size()-1)
     
