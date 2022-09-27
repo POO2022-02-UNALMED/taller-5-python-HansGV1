@@ -15,9 +15,9 @@ class Anfibio(animal.Animal):
         self.colorPiel = color
         self.venenoso = veneno
         self.setNombre(nombre)
-        Animal.setEdad(edad)
-        Animal.setHabitat(habitat)
-        Animal.setGenero(genero)
+        animal.setEdad(edad)
+        animal.setHabitat(habitat)
+        animal.setGenero(genero)
         
     def Anfibio(self):
         self.numAnfi += 1
