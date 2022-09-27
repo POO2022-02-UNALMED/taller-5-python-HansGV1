@@ -1,21 +1,23 @@
 from gestion import zoologico
+from zooAnimales import animal
 
-class Anfibio:
+class Anfibio(animal):
     def __init__ (self, anfibio, ranas, salamandras, colorPiel, venenoso, numAnfi):
-        self.anfibio = anfibio
+        self._anfibio = anfibio
         self.ranas = ranas
         self.salamandras = salamandras
-        self.colorPiel = colorPiel
-        self.venenoso = venenoso
+        self._colorPiel = colorPiel
+        self._venenoso = venenoso
+        super.__init__(nombre, edad, habitat, genero, color, veneno)
         self.numAnfi = numAnfi
     
     def Anfibio(self, nombre, edad, habitat, genero, color, veneno):
         self.colorPiel = color
         self.venenoso = veneno
-        zoologico.setNombre(nombre)
-        zoologico.setEdad(edad)
-        zoologico.setHabitat(habitat)
-        zoologico.setGenero(genero)
+        self.setNombre(nombre)
+        animal.setEdad(edad)
+        animal.setHabitat(habitat)
+        animal.setGenero(genero)
         
     def Anfibio(self):
         self.numAnfi += 1
