@@ -1,6 +1,6 @@
 from gestion import zoologico
 
-class Anfibio(Animal):
+class Anfibio:
     def __init__ (self, anfibio, ranas, salamandras, colorPiel, venenoso, numAnfi):
         self.anfibio = anfibio
         self.ranas = ranas
