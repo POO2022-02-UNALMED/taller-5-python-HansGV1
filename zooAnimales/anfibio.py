@@ -25,7 +25,7 @@ class Anfibio(animal.Animal):
     def movimiento(self):
         return "saltar"
     
-    def crearRana(self, nombre, edad, genero):
+    def crearRana(self, nombre, edad, genero = None):
         self.anfibio.add(Anfibio(nombre, edad, "selva",genero,"rojo",True))
         self.ranas += 1
         self.numAnfi += 1
