@@ -1,4 +1,4 @@
-from gestion import Zoologico
+from gestion import zoologico
 
 class Anfibio:
     def __init__ (self, anfibio, ranas, salamandras, colorPiel, venenoso, numAnfi):
@@ -12,10 +12,10 @@ class Anfibio:
     def Anfibio(self, nombre, edad, habitat, genero, color, veneno):
         self.colorPiel = color
         self.venenoso=veneno
-        Zoologico.setNombre(nombre)
-        Zoologico.setEdad(edad)
-        Zoologico.setHabitat(habitat)
-        Zoologico.setGenero(genero)
+        zoologico.setNombre(nombre)
+        zoologico.setEdad(edad)
+        zoologico.setHabitat(habitat)
+        zoologico.setGenero(genero)
         
     def Anfibio(self):
         self.numAnfi += 1

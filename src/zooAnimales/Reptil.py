@@ -1,47 +1,47 @@
-from gestion import Zoologico
-from zooAnimales import Mamifero
-from zooAnimales import Ave
-from zooAnimales import Pez
-from zooAnimales import Reptil
-from zooAnimales import Anfibio
+from gestion import zoologico
+from zooAnimales import mamifero
+from zooAnimales import ave
+from zooAnimales import pez
+from zooAnimales import reptil
+from zooAnimales import anfibio
 
 class Reptil:
-    def __init__ (self, reptil, iguanas, serpientes, colorEscamas, largoCola, numReptil):
+    def __init__ (self, reptil, iguanas, serpientes, colorEscamas, largoCola, numreptil):
         self.reptil = reptil
         self.iguanas = iguanas
         self.serpientes = serpientes
         self.colorEscamas = colorEscamas
         self.largoCola = largoCola
-        self.numReptil = numReptil
+        self.numreptil = numreptil
     
-    def Reptil(self, nombre, edad,habitat, genero, colorEscamas, cola):
+    def reptil(self, nombre, edad,habitat, genero, colorEscamas, cola):
         self.colorEscamas=colorEscamas
         self.largoCola=cola
-        Zoologico.setNombre(nombre)
-        Zoologico.setEdad(edad)
-        Zoologico.setHabitat(habitat)
-        Zoologico.setGenero(genero)
+        zoologico.setNombre(nombre)
+        zoologico.setEdad(edad)
+        zoologico.setHabitat(habitat)
+        zoologico.setGenero(genero)
     
-    def Reptil(self):
-        self.numReptil += 1
+    def reptil(self):
+        self.numreptil += 1
     
     def movimiento():
         return "reptar"
     
     def crearIguana(self, nombre, edad, genero):
-        self.reptil.add(Reptil(nombre,edad,"humedal",genero,"verde",3))
-        self.numReptil += 1	
+        self.reptil.add(reptil(nombre,edad,"humedal",genero,"verde",3))
+        self.numreptil += 1	
         self.iguanas += 1
         return self.reptil.get(self.reptil.size()-1)
     
     def crearSerpiente(self, nombre, edad, genero):
-        self.reptil.add(Reptil(nombre,edad,"jungla",genero,"blanco",1))
-        self.numReptil += 1	
+        self.reptil.add(reptil(nombre,edad,"jungla",genero,"blanco",1))
+        self.numreptil += 1	
         self.serpientes += 1
         return self.reptil.get(self.reptil.size()-1)
     
-    def cantidadReptiles(self):
-        return self.numReptil
+    def cantidadreptiles(self):
+        return self.numreptil
     
     def getColorEscamas(self):
         return self.colorEscamas
