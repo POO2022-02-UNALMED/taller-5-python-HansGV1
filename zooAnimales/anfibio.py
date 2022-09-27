@@ -44,6 +44,6 @@ class Anfibio:
     def getColorPiel(self):
         return self.colorPiel
     
-    def getNombre(self):
-        return self.super.getNombre()
+    def getNombre():
+        return super.__init__(nombre)
 
