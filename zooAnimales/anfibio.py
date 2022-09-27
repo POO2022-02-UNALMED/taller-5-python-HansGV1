@@ -46,7 +46,7 @@ class Anfibio(animal.Animal):
         return self.colorPiel
     
     def getNombre(self):
-        return self.anfibio
+        return self.nombre
     
     def getEdad(self):
         return self.edad
