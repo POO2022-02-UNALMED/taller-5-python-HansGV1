@@ -11,7 +11,7 @@ class Anfibio:
     
     def Anfibio(self, nombre, edad, habitat, genero, color, veneno):
         self.colorPiel = color
-        self.venenoso=veneno
+        self.venenoso = veneno
         zoologico.setNombre(nombre)
         zoologico.setEdad(edad)
         zoologico.setHabitat(habitat)
@@ -46,4 +46,13 @@ class Anfibio:
     
     def getNombre(self):
         return self.anfibio
-
+    
+    def getEdad(self):
+        return self.edad
+    
+    def getHabitat(self):
+        return self.habitat
+    
+    def getGenero(self):
+        return self.genero
+        
