@@ -9,6 +9,7 @@ class Anfibio(animal.Animal):
         self._colorPiel = colorPiel
         self._venenoso = venenoso
         self.numAnfi = numAnfi
+        super.__init__(nombre, edad, habitat, genero)
     
     def Anfibio(self, nombre, edad, habitat, genero, color, veneno):
         self.colorPiel = color
@@ -46,7 +47,7 @@ class Anfibio(animal.Animal):
         return self.colorPiel
     
     def getNombre(self):
-        return self.Anfibio.nombre
+        return self.nombre
     
     def getEdad(self):
         return self.edad
