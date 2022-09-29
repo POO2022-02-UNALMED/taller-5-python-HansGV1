@@ -2,12 +2,13 @@ from gestion.zoologico import Zoologico
 from zooAnimales.animal import Animal
 
 class Zona:
-    def __init__(self, nombre, zoo = None, animales = [], aa = {}, numAnimales = 0):
+    def __init__(self, nombre, zoo = None, animales = [], aa = {}, numAnimales = 0, d = 0):
         self._nombre = nombre
         self._zoo = zoo
         self._animales = animales
         self.aa = aa
         self.numAnimales = numAnimales
+        self.d = d
 
     def getZona():
         return Animal.getZona()
@@ -44,5 +45,7 @@ class Zona:
                 self._animales[self.aa[a]].append(ani)
         
     def cantidadAnimales(self):
-        self.numAnimales += len(self.getAnimales()[self.aa[self.getNombre()]])
-        return (self.numAnimales/2)
+        if self.d == 0:
+            self.numAnimales += len(self.getAnimales()[self.aa[self.getNombre()]])
+        self.d = 1
+        return (self.numAnimales)
