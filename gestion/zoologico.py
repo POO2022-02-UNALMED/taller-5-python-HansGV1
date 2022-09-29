@@ -26,6 +26,5 @@ class Zoologico:
         a = self.getZonas()
         cantidad = 0
         for i in a:
-            cantidad += i.cantidadAnimales()
-        
+            cantidad += i.cantidadAnimales()    
         return cantidad
