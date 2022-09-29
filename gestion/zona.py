@@ -45,5 +45,4 @@ class Zona:
         
     def cantidadAnimales(self):
         self.numAnimales += len(self.getAnimales()[self.aa[self.getNombre()]])
-        print(self.numAnimales)
-        return self.numAnimales
+        return (self.numAnimales/2)
