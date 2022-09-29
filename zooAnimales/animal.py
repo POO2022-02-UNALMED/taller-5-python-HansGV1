@@ -53,7 +53,7 @@ class Animal:
         return
        
     def totalPorTipo():
-        totalTipo = "Mamiferos: " + str(zooAnimales.mamifero.Mamifero.cantidadMamiferos()) + "\n" + "Aves: " + str(zooAnimales.ave.Ave.cantidadAves()) + "\n" + "Reptiles: " + str(zooAnimales.reptil.Reptil.cantidadReptiles()) + "\n" + "Peces: " + str(zooAnimales.pez.Pez.cantidadPeces()) + "\n" + "Anfibios: " + str(zooAnimales.anfibio.Anfibio.cantidadAnfibios())
+        totalTipo = "Mamiferos: " + str(zooAnimales.mamifero.Mamifero.cantidadMamiferos()) + "\nAves: " + str(zooAnimales.ave.Ave.cantidadAves()) + "\nReptiles: " + str(zooAnimales.reptil.Reptil.cantidadReptiles()) + "\nPeces: " + str(zooAnimales.pez.Pez.cantidadPeces()) + "\nAnfibios: " + str(zooAnimales.anfibio.Anfibio.cantidadAnfibios())
         return totalTipo
     
     def toString(self):
