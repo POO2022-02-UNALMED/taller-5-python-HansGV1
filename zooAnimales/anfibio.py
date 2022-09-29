@@ -1,60 +1,45 @@
-from gestion import zoologico
-from zooAnimales import animal
+from zooAnimales.animal import Animal
 
-class Anfibio(animal.Animal):
-    def __init__ (self, anfibio, ranas, salamandras, colorPiel, venenoso, numAnfi):
-        super().__init__(nombre = None, edad = 0, habitat = None, genero = None)
-        self._anfibio = anfibio
+class Anfibio(Animal):
+    def __init__(self, totalAnimales, nombre, edad, habitat, genero, zona, listado, ranas, salamandras, colorPiel, venenoso):
+        super().__init__(totalAnimales, nombre, edad, habitat, genero, zona)
+        self._listado = listado
         self.ranas = ranas
         self.salamandras = salamandras
         self._colorPiel = colorPiel
         self._venenoso = venenoso
-        self.numAnfi = numAnfi
-        
-    def Anfibio(self, nombre, edad, habitat, genero, color, veneno):
-        self.colorPiel = color
-        self.venenoso = veneno
-        self.setNombre(nombre)
-        animal.setEdad(edad)
-        animal.setHabitat(habitat)
-        animal.setGenero(genero)
-        
-    def Anfibio(self):
-        self.numAnfi += 1
-      
-    def movimiento(self):
-        return "saltar"
     
-    def crearRana(self, nombre, edad, genero = None):
-        self.anfibio.add(Anfibio(nombre, edad, "selva",genero,"rojo",True))
-        self.ranas += 1
-        self.numAnfi += 1
-        return self.anfibio.get(self.anfibio.size()-1)
+    def getListado (self):
+        return self._listado
     
-    def crearSalamandra(self, nombre, edad, genero):
-        self.anfibio.add(Anfibio(nombre, edad, "selva",genero,"negro y amarillo",False))
-        self.salamandras += 1
-        self.numAnfi += 1
-        return self.anfibio.get(self.anfibio.size()-1)
+    def setListado (self, lis):
+        self._listado = lis
+    
+    def getColorPiel (self):
+        return self._colorPiel
+    
+    def setColorPiel (self, colp):
+        self._colorPiel = colp
+        
+    def getVenenoso (self):
+        return self._venenoso
+    
+    def setVenenoso (self, poi):
+        self._venenoso = poi
     
     def cantidadAnfibios(self):
-        return self.numAnfi
+        anfibios = self.ranas + self.salamandras
+        return anfibios
     
-    def isVenenoso(self):
-        return self.venenoso
+    def movimiento():
+        return
     
-    def getColorPiel(self):
-        return self.colorPiel
+    def crearRana(self, frog, **kwargs):
+        self.ranas += 1
+        frog = Anfibio(colorPiel = "rojo", venenoso = True, habitat = "selva", **kwargs)
+        return frog
     
-    def getNombre(self):
-        return self.nombre
-    
-    def getEdad(self):
-        return self.edad
-    
-    def getHabitat(self):
-        return self.habitat
-    
-    def getGenero(self):
-        return self.genero
-        
+    def crearSalamandra(self, baca, **kwargs):
+        self.salamandras += 1
+        baca = Anfibio(colorPiel = "negro y amarillo", venenoso = False, habitat = "selva", **kwargs)  
+        return baca

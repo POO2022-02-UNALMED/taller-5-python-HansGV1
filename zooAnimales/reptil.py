@@ -1,50 +1,45 @@
-from gestion import zoologico
-from zooAnimales import mamifero
-from zooAnimales import ave
-from zooAnimales import pez
-from zooAnimales import reptil
-from zooAnimales import anfibio
+from zooAnimales.animal import Animal
 
-class Reptil:
-    def __init__ (self, reptil, iguanas, serpientes, colorEscamas, largoCola, numreptil):
-        self.reptil = reptil
+class Reptil(Animal):
+    def __init__(self, totalAnimales, nombre, edad, habitat, genero, zona, listado, iguanas, serpientes, colorEscamas, largoCola):
+        super().__init__(totalAnimales, nombre, edad, habitat, genero, zona)
+        self._listado = listado
         self.iguanas = iguanas
         self.serpientes = serpientes
-        self.colorEscamas = colorEscamas
-        self.largoCola = largoCola
-        self.numreptil = numreptil
+        self._colorEscamas = colorEscamas
+        self._largoCola = largoCola
+        
+    def getListado(self):
+        return self._listado
     
-    def reptil(self, nombre, edad,habitat, genero, colorEscamas, cola):
-        self.colorEscamas=colorEscamas
-        self.largoCola=cola
-        zoologico.setNombre(nombre)
-        zoologico.setEdad(edad)
-        zoologico.setHabitat(habitat)
-        zoologico.setGenero(genero)
-    
-    def reptil(self):
-        self.numreptil += 1
-    
-    def movimiento():
-        return "reptar"
-    
-    def crearIguana(self, nombre, edad, genero):
-        self.reptil.add(reptil(nombre,edad,"humedal",genero,"verde",3))
-        self.numreptil += 1	
-        self.iguanas += 1
-        return self.reptil.get(self.reptil.size()-1)
-    
-    def crearSerpiente(self, nombre, edad, genero):
-        self.reptil.add(reptil(nombre,edad,"jungla",genero,"blanco",1))
-        self.numreptil += 1	
-        self.serpientes += 1
-        return self.reptil.get(self.reptil.size()-1)
-    
-    def cantidadreptiles(self):
-        return self.numreptil
+    def setListado(self, list):
+        self._listado = list
     
     def getColorEscamas(self):
-        return self.colorEscamas
+        return self._colorEscamas
+    
+    def setColorEscamas(self, col):
+        self._colorEscamas = col
     
     def getLargoCola(self):
-        return self.largoCola
+        return self._largoCola
+    
+    def setLargoCola(self, lar):
+        self._largoCola = lar
+    
+    def cantidadReptiles(self):
+        reptiles = self.iguanas + self.serpientes
+        return reptiles
+    
+    def movimiento():
+        return
+    
+    def crearIguana(self, iguan, **kwargs):
+        self.iguanas += 1
+        iguan = Reptil(colorEscamas = "verde", largoCola = 3, habitat = "humedal", **kwargs)        
+        return iguan
+    
+    def crearSerpiente(self, snake, **kwargs):
+        self.serpientes += 1
+        snake = Reptil(colorEscamas = "blanco", largoCola = 1, habitat = "jungla", **kwargs)       
+        return snake

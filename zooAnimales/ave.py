@@ -1,46 +1,38 @@
-from gestion import zoologico
-from zooAnimales import mamifero
-from zooAnimales import ave
-from zooAnimales import pez
-from zooAnimales import reptil
-from zooAnimales import anfibio
+from zooAnimales.animal import Animal
 
-class Ave:
-    def __init__(self, ave, aguilas, halcones, colorPlumas, numaves):
-        self.ave = ave
-        self.aguilas = aguilas
+class Ave(Animal):
+    def __init__(self, totalAnimales, nombre, edad, habitat, genero, zona, listado, halcones, aguilas, colorPlumas):
+        super().__init__(totalAnimales, nombre, edad, habitat, genero, zona)
+        self._listado = listado
         self.halcones = halcones
-        self.colorPlumas = colorPlumas
-        self.numaves = numaves
+        self.aguilas = aguilas
+        self._colorPlumas = colorPlumas
+        
+    def getListado(self):
+        return self._listado
     
-    def ave(self, nombre, edad, habitat,  genero, color): 
-        self.colorPlumas= color
-        zoologico.setNombre(nombre)
-        zoologico.setEdad(edad)
-        zoologico.setHabitat(habitat)
-        zoologico.setGenero(genero)
+    def setListado(self, list):
+        self._listado = list
     
-    def ave(self): 
-        self.numaves += 1	
+    def getColorPlumas(self):
+        return self._colorPlumas
+    
+    def setColorPlumas(self, col):
+        self._colorPlumas = col
+    
+    def cantidadAves(self):
+        aves = self.halcones + self.aguilas
+        return aves
     
     def movimiento():
-        return "volar"
+        return
     
-    def crearHalcon(self, nombre, edad,  genero): 
-        self.ave.add(ave(nombre,edad,"montana",genero,"cafe glorioso"))
-        self.numaves += 1		
-        self.halcones+=	1
-        return self.ave.get(self.ave.size()-1)
+    def crearHalcon(self, falcon, **kwargs):
+        self.halcones += 1
+        falcon = Ave(colorPlumas = "cafe glorioso", habitat = "montanas", **kwargs)        
+        return falcon
     
-    def crearAguila(self, nombre, edad,  genero): 
-        self.ave.add(ave(nombre,edad,"montana",genero,"blanco y amarillo"))
-        self.numaves += 1		
+    def crearAguilas(self, eagle, **kwargs):
         self.aguilas += 1
-        return self.ave.get(self.ave.size()-1)
-    
-    def cantidadaves(self):
-        return self.numaves	
-    
-    def getColorPlumas(self): 
-        return self.colorPlumas
-		
+        eagle = Ave(colorPlumas = "blanco y amarillo", habitat = "montanas", **kwargs)        
+        return eagle

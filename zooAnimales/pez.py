@@ -1,50 +1,45 @@
-from gestion import zoologico
-from zooAnimales import mamifero
-from zooAnimales import ave
-from zooAnimales import pez
-from zooAnimales import reptil
-from zooAnimales import anfibio
+from zooAnimales.animal import Animal
 
-class Pez:
-    def __init__(self, pez, salmones, bacalaos, colorEscamas, cantidadAletas, numpez): 
-        self.pez = pez
+class Pez(Animal):
+    def __init__(self, totalAnimales, nombre, edad, habitat, genero, zona, listado, salmones, bacalaos, colorEscamas, cantidadAletas):
+        super().__init__(totalAnimales, nombre, edad, habitat, genero, zona)
+        self._listado = listado
         self.salmones = salmones
         self.bacalaos = bacalaos
-        self.colorEscamas = colorEscamas
-        self.cantidadAletas = cantidadAletas
-        self.numpez = numpez
+        self._colorEscamas = colorEscamas
+        self._cantidadAletas = cantidadAletas
         
-    def pez(self, nombre, edad,habitat, genero, colorEscamas, aletas):
-        self.colorEscamas=colorEscamas
-        self.cantidadAletas=aletas
-        zoologico.setNombre(nombre)
-        zoologico.setEdad(edad)
-        zoologico.setHabitat(habitat)
-        zoologico.setGenero(genero)
+    def getListado(self):
+        return self._listado
     
-    def pez(self):
-        self.numpez += 1
-    
-    def movimiento():
-        return "nadar"
-    
-    def crearSalmon(self, nombre, edad, genero):
-        self.pez.add(pez(nombre,edad,"oceano",genero,"rojo",6))
-        self.salmones += 1
-        self.numpez += 1
-        return self.pez.get(self.pez.size()-1)
-    
-    def crearBacalao(self, nombre, edad, genero):
-        self.pez.add(pez(nombre,edad,"oceano",genero,"gris",6))
-        self.bacalaos += 1
-        self.numpez += 1
-        return self.pez.get(self.pez.size()-1)
-    
-    def cantidadPeces(self):
-        return self.numpez
+    def setListado(self, list):
+        self._listado = list
     
     def getColorEscamas(self):
-        return self.colorEscamas
+        return self._colorEscamas
+    
+    def setColorEscamas(self, col):
+        self._colorEscamas = col
     
     def getCantidadAletas(self):
-        return self.cantidadAletas
+        return self._cantidadAletas
+    
+    def setCantidadAletas(self, cantal):
+        self._cantidadAletas = cantal
+    
+    def cantidadReptiles(self):
+        peces = self.salmones + self.bacalaos
+        return peces
+    
+    def movimiento():
+        return
+    
+    def crearSalmon(self, sali, **kwargs):
+        self.salmones += 1
+        sali = Pez(colorEscamas = "rojo", cantidadAletas = "6", habitat = "oceano", **kwargs)
+        return sali
+    
+    def crearBacalao(self, baca, **kwargs):
+        self.bacalaos += 1
+        baca = Pez(colorEscamas = "gris", cantidadAletas = "6", habitat = "oceano", **kwargs)  
+        return baca

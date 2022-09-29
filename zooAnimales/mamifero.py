@@ -1,47 +1,42 @@
-from gestion import zoologico
-from zooAnimales import mamifero
-from zooAnimales import ave
-from zooAnimales import pez
-from zooAnimales import reptil
-from zooAnimales import anfibio
+from zooAnimales.animal import Animal
 
-class Mamifero:
-    def __init__(self, mamifero, caballos, leones, pelaje, patas, nummamiferos):
-        self.mamifero = mamifero
+class Mamifero(Animal):
+    def __init__(self, totalAnimales, nombre, edad, habitat, genero, zona, listado, caballos, leones, pelaje, patas):
+        super().__init__(totalAnimales, nombre, edad, habitat, genero, zona)
+        self._listado = listado
         self.caballos = caballos
         self.leones = leones
-        self.pelaje = pelaje
-        self.patas = patas
-        self.nummamiferos = nummamiferos
+        self._pelaje = pelaje
+        self._patas = patas
         
-    def mamifero(self, nombre, edad,habitat, genero, pelaje, patas):
-        self.patas= patas
-        self.pelaje = pelaje
-        zoologico.setNombre(nombre)
-        zoologico.setEdad(edad)
-        zoologico.setHabitat(habitat)
-        zoologico.setGenero(genero)
+    def getListado(self):
+        return self._listado
     
-    def mamifero(self):
-        self.nummamiferos += 1
+    def setListado(self, list):
+        self._listado = list
     
-    def cantidadmamiferos(self):
-        return self.nummamiferos
+    def getPelaje(self):
+        return self._pelaje
     
-    def crearCaballo(self, nombre, edad, genero):
-        self.mamifero.add(mamifero(nombre,edad,"pradera",genero,True,4))		
-        self.nummamiferos += 1
-        self.caballos+= 1	
-        return self.mamifero.get(self.mamifero.size()-1)		
-    
-    def crearLeon(self, nombre, edad, genero):
-        self.mamifero.add(mamifero(nombre,edad,"selva",genero,True,4))
-        self.nummamiferos += 1
-        self.leones += 1
-        return self.mamifero.get(self.mamifero.size()-1)
-    
-    def isPelaje(self):
-        return self.pelaje
+    def setPelaje(self, col):
+        self._pelaje = col
     
     def getPatas(self):
-        return self.patas
+        return self._patas
+    
+    def setPatas(self, pat):
+        self._patas = pat
+    
+    def cantidadMamiferos(self):
+        mamiferos = self.caballos + self.leones
+        return mamiferos
+
+    def crearCaballo(self, horse, **kwargs):
+        self.caballos += 1
+        horse = Mamifero(pelaje = True, patas = 4, habitat = "pradera", **kwargs)        
+        return horse
+    
+    def crearLeon(self, lion, **kwargs):
+        self.leones += 1
+        lion = Mamifero(pelaje = True, patas = 4, habitat = "selva", **kwargs)        
+        return lion

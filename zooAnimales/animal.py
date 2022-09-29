@@ -1,52 +1,66 @@
-from gestion import zoologico
-from zooAnimales import mamifero
-from zooAnimales import ave
-from zooAnimales import pez
-from zooAnimales import reptil
-from zooAnimales import anfibio
+from zooAnimales.anfibio import Anfibio
+from zooAnimales.pez import Pez
+from zooAnimales.reptil import Reptil
+from zooAnimales.ave import Ave
+from zooAnimales.mamifero import Mamifero
+from gestion.zoologico import Zoologico
 
 class Animal:
-    def __init__(self, nombre=None, edad=0, habitat=None, genero=None):
-        self.nombre = nombre
-        self.edad = edad
-        self.habitat = habitat
-        self.genero = genero
+    def __init__(self,totalAnimales, nombre, edad, habitat, genero, zona):
+        self._totalAnimales = totalAnimales
+        self._nombre = nombre
+        self._edad = edad
+        self._habitat = habitat
+        self._genero = genero
+        self._zona = zona
+  
+    def getTotalAnimales (self):
+        return self._totalAnimales
     
-    def Animal(self, nombre, edad, habitat, genero):		
-        self.setNombre(nombre)
-        self.setEdad(edad)
-        self.setHabitat(habitat)
-        self.setGenero(genero)
+    def setAnimales(self):
+        self._totalAnimales = Mamifero.cantidadMamiferos() + Ave.cantidadAves() + Reptil.cantidadReptiles() + Pez.cantidadPeces() + Anfibio.cantidadAnfibios()
+                
+    def getNombre (self):
+        return self._nombre
     
-    def movimiento(): 
-        return "desplazarse"
-    
-    def to(self): 
-        return "Mi nombre es " + self.getNombre()+", tengo una edad de "+ self.getEdad()+", habito en "+self.getHabitat() +" y mi genero es "+self.getGenero()
-    
-    def totalPorTipo(self): 
-        return  "Mamiferos: "+mamifero.cantidadMamiferos()+"\n"+ "Aves: "+ave.cantidadAves()+"\n"+"Reptiles: "+reptil.cantidadReptiles()+"\n"+"Peces: "+pez.cantidadPeces()+"\n"+"Anfibios: "+anfibio.cantidadAnfibios()+"\n"
-
-    def getNombre(self): 
-        return self.nombre
-    
-    def setNombre(self, nombre): 
-        self.nombre = nombre
-    
-    def getEdad(self): 
-        return self.edad
-    
-    def setEdad(self, edad): 
-        self.edad = edad
-    
-    def getHabitat(self): 
-        return self.habitat
-    
-    def setHabitat(self, habitat): 
-        self.habitat = habitat
+    def setNombre (self, nom):
+        self._nombre = nom
         
-    def getGenero(self):
-        return self.genero
+    def getEdad (self):
+        return self._edad
     
-    def setGenero(self, genero):
-        self.genero = genero
+    def setEdad (self, ed):
+        self._edad = ed
+        
+    def getHabitat (self):
+        return self._habitat
+    
+    def setHabitat (self, hab):
+        self._habitat = hab
+    
+    def getGenero (self):
+        return self._genero
+    
+    def setGenero (self, gen):
+        self._genero = gen
+        
+    def getZona (self):
+        return self._zona
+    
+    def setZona (self, zon):
+        self._zona = zon
+    
+    def movimiento(self):
+        return
+       
+    def totalPorTipo(self):
+        totalTipo = "Mamiferos: " + str(Mamifero.cantidadMamiferos()) + "\n" + "Aves: " + str(Ave.cantidadAves()) + "\n" + "Reptiles: " + str(Reptil.cantidadReptiles()) + "\n" + "Peces: " + str(Pez.cantidadPeces()) + "\n" + "Anfibios: " + str(Anfibio.cantidadAnfibios())
+        return totalTipo
+    
+    def toString(self):
+        if self._zona == None:
+            formato = "Mi nombre es " + str(self.getNombre()) + ", tengo una edad de " + str(self.getEdad()) + ", habito en " + str(self.getHabitat()) + " y mi genero es " + str(self.getGenero()) +  "."
+        
+        if self._zona != None:
+            formato = "Mi nombre es " + str(self.getNombre()) + ", tengo una edad de " + str(self.getEdad()) + ", habito en " + str(self.getHabitat()) + " y mi genero es " + str(self.getGenero()) +  ", la zona en la que me ubico es " + str(self.getZona()) + ", en el " + str(self.getZona().getZoo())   
+        return formato
