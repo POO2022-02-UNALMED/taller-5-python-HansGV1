@@ -1,5 +1,5 @@
 class Zoologico:
-    def __init__(self, nombre, ubicacion, zonas):
+    def __init__(self, nombre, ubicacion, zonas = None):
         self._nombre = nombre
         self._ubicacion = ubicacion
         self._zonas = zonas
@@ -26,5 +26,5 @@ class Zoologico:
         a = self.getZonas()
         cantidad = 0
         for i in a:
-            cantidad += i.cantidadAnimales()    
+            cantidad += i.cantidadAnimales()
         return cantidad

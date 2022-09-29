@@ -1,8 +1,8 @@
 from zooAnimales import animal
 
 class Anfibio(animal.Animal):
-    def __init__(self, nombre, edad, habitat, genero, zona, listado, ranas, salamandras, colorPiel, venenoso):
-        super().__init__(nombre, edad, habitat, genero, zona)
+    def __init__(self, nombre, edad, habitat, genero, colorPiel, venenoso, zona = None, totalAnimales = 0, listado = None, ranas = None, salamandras = None):
+        super().__init__(nombre, edad, habitat, genero, zona, totalAnimales)
         self._listado = listado
         self.ranas = ranas
         self.salamandras = salamandras
@@ -21,7 +21,7 @@ class Anfibio(animal.Animal):
     def setColorPiel (self, colp):
         self._colorPiel = colp
         
-    def getVenenoso (self):
+    def isVenenoso (self):
         return self._venenoso
     
     def setVenenoso (self, poi):
