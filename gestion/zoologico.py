@@ -20,6 +20,10 @@ class Zoologico:
     @classmethod 
     def getZona (cls):
         return cls._zonas
+    
+    @classmethod 
+    def getZonas (cls):
+        return cls._zonas
 
     @classmethod
     def agregarZonas(cls, zon):
