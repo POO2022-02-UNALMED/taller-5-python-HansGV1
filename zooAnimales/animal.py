@@ -1,9 +1,4 @@
-from zooAnimales.anfibio import Anfibio
-from zooAnimales.pez import Pez
-from zooAnimales.reptil import Reptil
-from zooAnimales.ave import Ave
-from zooAnimales.mamifero import Mamifero
-from gestion.zoologico import Zoologico
+import zooAnimales
 
 class Animal:
     def __init__(self,totalAnimales, nombre, edad, habitat, genero, zona):
@@ -18,7 +13,7 @@ class Animal:
         return self._totalAnimales
     
     def setAnimales(self):
-        self._totalAnimales = Mamifero.cantidadMamiferos() + Ave.cantidadAves() + Reptil.cantidadReptiles() + Pez.cantidadPeces() + Anfibio.cantidadAnfibios()
+        self._totalAnimales = zooAnimales.mamifero.Mamifero.cantidadMamiferos() + zooAnimales.ave.Ave.cantidadAves() + zooAnimales.reptil.Reptil.cantidadReptiles() + zooAnimales.pez.Pez.cantidadPeces() + zooAnimales.anfibio.Anfibio.cantidadAnfibios()
                 
     def getNombre (self):
         return self._nombre
@@ -54,7 +49,7 @@ class Animal:
         return
        
     def totalPorTipo(self):
-        totalTipo = "Mamiferos: " + str(Mamifero.cantidadMamiferos()) + "\n" + "Aves: " + str(Ave.cantidadAves()) + "\n" + "Reptiles: " + str(Reptil.cantidadReptiles()) + "\n" + "Peces: " + str(Pez.cantidadPeces()) + "\n" + "Anfibios: " + str(Anfibio.cantidadAnfibios())
+        totalTipo = "Mamiferos: " + str(zooAnimales.mamifero.Mamifero.cantidadMamiferos()) + "\n" + "Aves: " + str(zooAnimales.ave.Ave.cantidadAves()) + "\n" + "Reptiles: " + str(zooAnimales.reptil.Reptil.cantidadReptiles()) + "\n" + "Peces: " + str(zooAnimales.pez.Pez.cantidadPeces()) + "\n" + "Anfibios: " + str(zooAnimales.anfibio.Anfibio.cantidadAnfibios())
         return totalTipo
     
     def toString(self):
