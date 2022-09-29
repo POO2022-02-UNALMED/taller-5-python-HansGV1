@@ -2,9 +2,9 @@ from gestion.zoologico import Zoologico
 from zooAnimales.animal import Animal
 
 class Zona:
-    _zoo = []
-    def __init__(self, nombre, animales = [], aa = {}, numAnimales = 0):
+    def __init__(self, nombre, zoo = None, animales = [], aa = {}, numAnimales = 0):
         self._nombre = nombre
+        self._zoo = zoo
         self._animales = animales
         self.aa = aa
         self.numAnimales = numAnimales
@@ -18,13 +18,11 @@ class Zona:
     def setNombre (self, nom):
         self._nombre = nom
     
-    @classmethod
-    def getZoo (cls):
-        return cls._zoo
+    def getZoo (self):
+        return self._zoo
     
-    @classmethod
-    def setZoo (cls, zuu):
-        cls._zoo = zuu
+    def setZoo (self, zuu):
+        self._zoo = zuu
     
     def getAnimales (self):
         return self._animales
