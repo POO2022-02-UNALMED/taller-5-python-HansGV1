@@ -1,20 +1,15 @@
 from zooAnimales.animal import Animal
 
 class Pez(Animal):
-    def __init__(self, nombre, edad, habitat, genero, colorEscamas, cantidadAletas, zona = None, totalAnimales = 0, listado = None, salmones = 0, bacalaos = 0):
+    _Peces = []
+    salmones = 0
+    bacalaos = 0
+    numPeces = 0
+    def __init__(self, nombre, edad, habitat, genero, colorEscamas, cantidadAletas, zona = None, totalAnimales = 0):
         super().__init__(nombre, edad, habitat, genero, zona, totalAnimales)
-        self._listado = listado
-        self.salmones = salmones
-        self.bacalaos = bacalaos
         self._colorEscamas = colorEscamas
         self._cantidadAletas = cantidadAletas
-        
-    def getListado(self):
-        return self._listado
-    
-    def setListado(self, list):
-        self._listado = list
-    
+          
     def getColorEscamas(self):
         return self._colorEscamas
     
@@ -27,19 +22,36 @@ class Pez(Animal):
     def setCantidadAletas(self, cantal):
         self._cantidadAletas = cantal
     
-    def cantidadReptiles(self):
-        peces = self.salmones + self.bacalaos
-        return peces
+    @classmethod
+    def getPeces(cls):
+        return cls._Peces
+    
+    @classmethod
+    def setPeces(cls, list):
+        cls._Peces.append(list)
+    
+    @classmethod
+    def cantidadPeces(cls):
+        cls.numPeces = cls.salmones + cls.bacalaos
+        return cls.numPeces
+
+    @classmethod
+    def Salmones(cls):
+        cls.salmones += 1
+    
+    @classmethod
+    def Bacalaos(cls):
+        cls.bacalaos += 1
     
     def movimiento():
         return
     
-    def crearSalmon(self, sali, **kwargs):
-        self.salmones += 1
-        sali = Pez(colorEscamas = "rojo", cantidadAletas = "6", habitat = "oceano", **kwargs)
-        return sali
+    @classmethod
+    def crearSalmon(cls, nombre, edad, genero):
+        cls.Salmones()
+        cls.setPeces(Pez(nombre, edad, "oceano", genero, "rojo", 6))
     
-    def crearBacalao(self, baca, **kwargs):
-        self.bacalaos += 1
-        baca = Pez(colorEscamas = "gris", cantidadAletas = "6", habitat = "oceano", **kwargs)  
-        return baca
+    @classmethod
+    def crearBacalao(cls, nombre, edad, genero):
+        cls.Bacalaos()
+        cls.setPeces(Pez(nombre, edad, "oceano", genero, "gris", 6)) 

@@ -1,20 +1,15 @@
 from zooAnimales.animal import Animal
 
 class Reptil(Animal):
-    def __init__(self, nombre, edad, habitat, genero, colorEscamas, largoCola, zona = None, totalAnimales = 0, listado = None, iguanas = 0, serpientes = 0):
+    _Reptiles = []
+    numReptiles = 0
+    iguanas = 0
+    serpientes = 0
+    def __init__(self, nombre, edad, habitat, genero, colorEscamas, largoCola, zona = None, totalAnimales = 0):
         super().__init__(nombre, edad, habitat, genero, zona, totalAnimales)
-        self._listado = listado
-        self.iguanas = iguanas
-        self.serpientes = serpientes
         self._colorEscamas = colorEscamas
         self._largoCola = largoCola
         
-    def getListado(self):
-        return self._listado
-    
-    def setListado(self, list):
-        self._listado = list
-    
     def getColorEscamas(self):
         return self._colorEscamas
     
@@ -27,19 +22,36 @@ class Reptil(Animal):
     def setLargoCola(self, lar):
         self._largoCola = lar
     
-    def cantidadReptiles(self):
-        reptiles = self.iguanas + self.serpientes
-        return reptiles
+    @classmethod
+    def getReptiles(cls):
+        return cls._Reptiles
+    
+    @classmethod
+    def setReptiles(cls, list):
+        cls._Reptiles.append(list)
+    
+    @classmethod
+    def cantidadReptiles(cls):
+        cls.numReptiles = cls.iguanas + cls.serpientes
+        return cls.numReptiles
     
     def movimiento():
         return
     
-    def crearIguana(self, iguan, **kwargs):
-        self.iguanas += 1
-        iguan = Reptil(colorEscamas = "verde", largoCola = 3, habitat = "humedal", **kwargs)        
-        return iguan
+    @classmethod
+    def Iguanas(cls):
+        cls.iguanas += 1
     
-    def crearSerpiente(self, snake, **kwargs):
-        self.serpientes += 1
-        snake = Reptil(colorEscamas = "blanco", largoCola = 1, habitat = "jungla", **kwargs)       
-        return snake
+    @classmethod
+    def Serpientes(cls):
+        cls.serpientes += 1
+    
+    @classmethod
+    def crearIguana(cls, nombre, edad, genero):
+        cls.Iguanas()
+        cls.setReptiles(Reptil(nombre, edad, "humedal", genero, "verde", 3))
+       
+    @classmethod
+    def crearSerpiente(cls, nombre, edad, genero):
+        cls.Serpientes()
+        cls.setReptiles(Reptil(nombre, edad, "jungla", genero, "blanco", 1, ))

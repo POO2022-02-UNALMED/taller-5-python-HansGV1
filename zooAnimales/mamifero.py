@@ -1,20 +1,15 @@
 from zooAnimales.animal import Animal
 
 class Mamifero(Animal):
-    def __init__(self, nombre, edad, habitat, genero, pelaje , patas, zona = None, totalAnimales = 0, listado = None, caballos = 0, leones = 0):
+    _mamiferos = []
+    caballos = 0
+    leones = 0
+    numMamiferos = 0
+    def __init__(self, nombre, edad, habitat, genero, pelaje , patas, zona = None, totalAnimales = 0):
         super().__init__(nombre, edad, habitat, genero, zona, totalAnimales)
-        self._listado = listado
-        self.caballos = caballos
-        self.leones = leones
         self._pelaje = pelaje
         self._patas = patas
-        
-    def getListado(self):
-        return self._listado
-    
-    def setListado(self, list):
-        self._listado = list
-    
+     
     def isPelaje(self):
         return self._pelaje
     
@@ -27,16 +22,33 @@ class Mamifero(Animal):
     def setPatas(self, pat):
         self._patas = pat
     
-    def cantidadMamiferos(self):
-        mamiferos = self.caballos + self.leones
-        return mamiferos
-
-    def crearCaballo(self, horse, **kwargs):
-        self.caballos += 1
-        horse = Mamifero(pelaje = True, patas = 4, habitat = "pradera", **kwargs)        
-        return horse
+    @classmethod
+    def getMamiferos(cls):
+        return cls._mamiferos
     
-    def crearLeon(self, lion, **kwargs):
-        self.leones += 1
-        lion = Mamifero(pelaje = True, patas = 4, habitat = "selva", **kwargs)        
-        return lion
+    @classmethod
+    def setMamiferos(cls, lis):
+        cls._mamiferos.append(lis)
+      
+    @classmethod
+    def cantidadMamiferos(cls):
+        cls.numMamiferos = cls.caballos + cls.leones
+        return cls.numMamiferos
+    
+    @classmethod
+    def Caballos(cls):
+        cls.caballos += 1
+    
+    @classmethod
+    def Leones(cls):
+        cls.leones += 1
+
+    @classmethod
+    def crearCaballo(cls, nombre, edad, genero):
+        cls.Caballos()
+        cls.setMamiferos(Mamifero(nombre, edad, "pradera", genero, True, 4))
+    
+    @classmethod
+    def crearLeon(cls, nombre, edad, genero):
+        cls.Leones()
+        cls.setMamiferos(Mamifero(nombre, edad, "selva", genero, True, 4))  
