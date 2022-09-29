@@ -1,12 +1,12 @@
-from zooAnimales import animal
+from zooAnimales.animal import Animal
 
-class Anfibio(animal.Animal):
+class Anfibio(Animal):
     _anfibios = []
     ranas = 0
     salamandras = 0
     numAnfibios = 0
-    def __init__(self, nombre, edad, habitat, genero, colorPiel, venenoso, zona = None, totalAnimales = 0):
-        super().__init__(nombre, edad, habitat, genero, zona, totalAnimales)
+    def __init__(self, nombre, edad, habitat, genero, colorPiel, venenoso):
+        super().__init__(nombre, edad, habitat, genero)
         self._colorPiel = colorPiel
         self._venenoso = venenoso
     

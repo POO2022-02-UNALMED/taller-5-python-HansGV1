@@ -5,8 +5,8 @@ class Pez(Animal):
     salmones = 0
     bacalaos = 0
     numPeces = 0
-    def __init__(self, nombre, edad, habitat, genero, colorEscamas, cantidadAletas, zona = None, totalAnimales = 0):
-        super().__init__(nombre, edad, habitat, genero, zona, totalAnimales)
+    def __init__(self, nombre, edad, habitat, genero, colorEscamas, cantidadAletas):
+        super().__init__(nombre, edad, habitat, genero)
         self._colorEscamas = colorEscamas
         self._cantidadAletas = cantidadAletas
           

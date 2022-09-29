@@ -1,20 +1,14 @@
 import zooAnimales
 
 class Animal:
-    def __init__(self, nombre, edad, habitat, genero, zona = None, totalAnimales = 0):
-        self._totalAnimales = totalAnimales
+    _zona = []
+    _totalAnimales = 0
+    def __init__(self, nombre, edad, habitat, genero):
         self._nombre = nombre
         self._edad = edad
         self._habitat = habitat
         self._genero = genero
-        self._zona = zona
   
-    def getTotalAnimales (self):
-        return self._totalAnimales
-    
-    def setAnimales(self):
-        self._totalAnimales = zooAnimales.mamifero.Mamifero.cantidadMamiferos() + zooAnimales.ave.Ave.cantidadAves() + zooAnimales.reptil.Reptil.cantidadReptiles() + zooAnimales.pez.Pez.cantidadPeces() + zooAnimales.anfibio.Anfibio.cantidadAnfibios()
-                
     def getNombre (self):
         return self._nombre
     
@@ -38,12 +32,22 @@ class Animal:
     
     def setGenero (self, gen):
         self._genero = gen
-        
-    def getZona (self):
-        return self._zona
+
+    @classmethod
+    def getTotalAnimales (cls):
+        return cls._totalAnimales
     
-    def setZona (self, zon):
-        self._zona = zon
+    @classmethod
+    def setAnimales(cls):
+        cls._totalAnimales = zooAnimales.mamifero.Mamifero.cantidadMamiferos() + zooAnimales.ave.Ave.cantidadAves() + zooAnimales.reptil.Reptil.cantidadReptiles() + zooAnimales.pez.Pez.cantidadPeces() + zooAnimales.anfibio.Anfibio.cantidadAnfibios()
+    
+    @classmethod 
+    def getZona (cls):
+        return cls._zona
+    
+    @classmethod
+    def setZona (cls, zon):
+        cls._zona = zon
     
     def movimiento(self):
         return
@@ -53,9 +57,9 @@ class Animal:
         return totalTipo
     
     def toString(self):
-        if self._zona == None:
+        if self._zona == []:
             formato = "Mi nombre es " + str(self.getNombre()) + ", tengo una edad de " + str(self.getEdad()) + ", habito en " + str(self.getHabitat()) + " y mi genero es " + str(self.getGenero()) +  "."
         
-        if self._zona != None:
+        if self._zona != []:
             formato = "Mi nombre es " + str(self.getNombre()) + ", tengo una edad de " + str(self.getEdad()) + ", habito en " + str(self.getHabitat()) + " y mi genero es " + str(self.getGenero()) +  ", la zona en la que me ubico es " + str(self.getZona()) + ", en el " + str(self.getZona().getZoo())   
         return formato

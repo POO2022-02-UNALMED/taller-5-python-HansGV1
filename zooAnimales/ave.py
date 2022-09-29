@@ -5,8 +5,8 @@ class Ave(Animal):
     halcones = 0
     aguilas = 0
     numAves = 0
-    def __init__(self, nombre, edad, habitat, genero, colorPlumas, zona = None, totalAnimales = 0):
-        super().__init__(nombre, edad, habitat, genero, zona, totalAnimales)
+    def __init__(self, nombre, edad, habitat, genero, colorPlumas):
+        super().__init__(nombre, edad, habitat, genero)
         self._colorPlumas = colorPlumas
         
     def getColorPlumas(self):
