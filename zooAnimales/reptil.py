@@ -1,8 +1,8 @@
 from zooAnimales.animal import Animal
 
 class Reptil(Animal):
-    def __init__(self, totalAnimales, nombre, edad, habitat, genero, zona, listado, iguanas, serpientes, colorEscamas, largoCola):
-        super().__init__(totalAnimales, nombre, edad, habitat, genero, zona)
+    def __init__(self, nombre, edad, habitat, genero, zona, listado, iguanas, serpientes, colorEscamas, largoCola):
+        super().__init__(nombre, edad, habitat, genero, zona)
         self._listado = listado
         self.iguanas = iguanas
         self.serpientes = serpientes

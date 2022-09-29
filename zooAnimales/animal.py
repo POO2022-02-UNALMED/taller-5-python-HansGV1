@@ -1,19 +1,21 @@
 import zooAnimales
 
 class Animal:
-    def __init__(self, nombre, edad, habitat, genero, zona, totalAnimales):
-        self._totalAnimales = totalAnimales
+    _totalAnimales = 0
+    def __init__(self, nombre, edad, habitat, genero, zona):
         self._nombre = nombre
         self._edad = edad
         self._habitat = habitat
         self._genero = genero
         self._zona = zona
-  
-    def getTotalAnimales (self):
-        return self._totalAnimales
     
-    def setAnimales(self):
-        self._totalAnimales = zooAnimales.mamifero.Mamifero.cantidadMamiferos() + zooAnimales.ave.Ave.cantidadAves() + zooAnimales.reptil.Reptil.cantidadReptiles() + zooAnimales.pez.Pez.cantidadPeces() + zooAnimales.anfibio.Anfibio.cantidadAnfibios()
+    @classmethod
+    def getTotalAnimales (cls):
+        return cls._totalAnimales
+    
+    @classmethod
+    def setAnimales(cls):
+        cls._totalAnimales = zooAnimales.mamifero.Mamifero.cantidadMamiferos() + zooAnimales.ave.Ave.cantidadAves() + zooAnimales.reptil.Reptil.cantidadReptiles() + zooAnimales.pez.Pez.cantidadPeces() + zooAnimales.anfibio.Anfibio.cantidadAnfibios()
                 
     def getNombre (self):
         return self._nombre

@@ -1,8 +1,8 @@
 from zooAnimales import animal
 
 class Anfibio(animal.Animal):
-    def __init__(self, totalAnimales, nombre, edad, habitat, genero, zona, listado, ranas, salamandras, colorPiel, venenoso):
-        super().__init__(totalAnimales, nombre, edad, habitat, genero, zona)
+    def __init__(self, nombre, edad, habitat, genero, zona, listado, ranas, salamandras, colorPiel, venenoso):
+        super().__init__(nombre, edad, habitat, genero, zona)
         self._listado = listado
         self.ranas = ranas
         self.salamandras = salamandras

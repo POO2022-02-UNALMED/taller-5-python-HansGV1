@@ -1,8 +1,8 @@
 from zooAnimales.animal import Animal
 
 class Ave(Animal):
-    def __init__(self, totalAnimales, nombre, edad, habitat, genero, zona, listado, halcones, aguilas, colorPlumas):
-        super().__init__(totalAnimales, nombre, edad, habitat, genero, zona)
+    def __init__(self, nombre, edad, habitat, genero, zona, listado, halcones, aguilas, colorPlumas):
+        super().__init__(nombre, edad, habitat, genero, zona)
         self._listado = listado
         self.halcones = halcones
         self.aguilas = aguilas
@@ -32,7 +32,7 @@ class Ave(Animal):
         falcon = Ave(colorPlumas = "cafe glorioso", habitat = "montanas", **kwargs)        
         return falcon
     
-    def crearAguilas(self, eagle, **kwargs):
+    def crearAguila(self, eagle, **kwargs):
         self.aguilas += 1
         eagle = Ave(colorPlumas = "blanco y amarillo", habitat = "montanas", **kwargs)        
         return eagle
